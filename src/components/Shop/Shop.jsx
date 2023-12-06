@@ -22,7 +22,7 @@ const Shop = () => {
 
   // total page api
   useEffect(() => {
-    fetch("http://localhost:5000/totalProducts")
+    fetch("https://ema-john-simple-server-cyan.vercel.app/totalProducts")
       .then((res) => res.json())
       .then((data) => setTotalProducts(data.totalProduct));
   }, []);
@@ -37,7 +37,7 @@ const Shop = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `http://localhost:5000/products?page=${currentPage}&limit=${itemPerPage}`
+        `https://ema-john-simple-server-cyan.vercel.app/products?page=${currentPage}&limit=${itemPerPage}`
       );
       const data = await response.json();
       setProducts(data);
@@ -48,7 +48,7 @@ const Shop = () => {
   useEffect(() => {
     const storedCart = getShoppingCart();
     const ids = Object.keys(storedCart);
-    fetch(`http://localhost:5000/productsIds`, {
+    fetch(`https://ema-john-simple-server-cyan.vercel.app/productsIds`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(ids),

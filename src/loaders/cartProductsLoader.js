@@ -6,11 +6,14 @@ const cartProductsLoader = async () => {
   const ids = Object.keys(storedCart);
   console.log(ids);
 
-  const loadedProducts = await fetch(`http://localhost:5000/productsIds`, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(ids),
-  });
+  const loadedProducts = await fetch(
+    `https://ema-john-simple-server-cyan.vercel.app/productsIds`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(ids),
+    }
+  );
   const products = await loadedProducts.json();
   console.log(products);
 
